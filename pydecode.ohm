@@ -1,0 +1,15 @@
+pydecode {
+  text = char+
+  char =
+    | "“" stringchar* "”"  -- string
+    | "⌈" commentchar* "⌉" -- comment
+    | "❲"                  -- ulb
+    | "%E2%9D%B2"          -- encodedulb
+    | "❳"                  -- urb
+    | "%E2%9D%B3"          -- encodedurb
+    | "%20"                -- space
+    | any                  -- other
+
+  stringchar =  ~"“" ~"”" any 
+  commentchar =  ~"⌈" ~"⌉" any 
+}

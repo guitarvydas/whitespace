@@ -1,0 +1,3 @@
+var xyz = "this is" + " " + "a test"
+// this is a comment
+var ❲this is a ❲variable name❳ containing spaces❳ = 42

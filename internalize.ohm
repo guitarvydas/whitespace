@@ -1,0 +1,22 @@
+internalize {
+  text = char+
+  char =
+    | dq (~dq stringchar)* dq -- string
+    | begincomment (~nl stringchar)* nl -- comment
+    | "❲" wordchar+ "❳" -- word
+    | id -- ident
+    | ~"❲" ~"❳" any -- any
+
+  stringchar = " " | nl | "\t" | "<" | ">" | "&" | quoteddq | sq | dq | any 
+
+  wordchar =
+    | "❲" wordchar+ "❳" -- rec
+    | ~"❲" ~"❳" any -- bottom
+
+  id = (letter | "_") (letter | digit | "_")*
+  quoteddq = "\\" dq
+  sq = "'"
+  dq = "\""
+  begincomment = "//"
+  nl = "\n"
+}
