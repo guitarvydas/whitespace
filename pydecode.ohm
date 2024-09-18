@@ -1,15 +1,14 @@
 pydecode {
   text = char+
   char =
-    | "“" stringchar* "”"  -- string
-    | "⌈" commentchar* "⌉" -- comment
-    | "❲"                  -- ulb
-    | "%E2%9D%B2"          -- encodedulb
-    | "❳"                  -- urb
-    | "%E2%9D%B3"          -- encodedurb
-    | "%20"                -- space
-    | any                  -- other
-
-  stringchar =  ~"“" ~"”" any 
-  commentchar =  ~"⌈" ~"⌉" any 
+    | "“" (~"“" ~"”" any)* "”"  -- string
+    | "⌈" (~"⌈" ~"⌉" any) "⌉"   -- comment
+    | "❲"                       -- ulb
+    | "%E2%9D%B2"               -- encodedulb
+    | "❳"                       -- urb
+    | "%E2%9D%B3"               -- encodedurb
+    | "%20"                     -- space
+    | "%09"                     -- tab
+    | "%0A"                     -- newline
+    | any                       -- other
 }

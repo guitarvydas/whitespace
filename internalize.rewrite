@@ -6,16 +6,11 @@
   char_ident [s] = ‛❲⎨encodews ‛«s»’⎬❳’
   char_any [c] = ‛«c»’
 
-  stringchar [c] = ‛«c»’
-
   wordchar_rec [lb cs+ rb] = ‛«lb»«cs»«rb»’
   wordchar_bottom [c] = ‛«c»’
 
   id [firstc morecs*] = ‛«firstc»«morecs»’
-  quoteddq [bsl dq] = ‛«dq»’
-  sq [c] = ‛«c»’
   dq [c] = ‛«c»’
-  begincomment [x] = ‛«x»’
   nl [c] = ‛«c»’
 }
 
