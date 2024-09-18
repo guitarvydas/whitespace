@@ -1,4 +1,4 @@
 var xyz = "this is" + " " + "a test"
 // this is a comment
 var ❲this is a ❲variable name❳ containing spaces and tabs	and newlines
-(end of line)❳ = 42
+eol❳ = 42
